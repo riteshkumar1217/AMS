@@ -8,12 +8,13 @@ import datetime
 class envSetup(unittest.TestCase):
 
     def __init__(self):
-        conn = mysql.connector.connect(host='35.154.36.218',
-                                       database='appserver_core',
-                                       user='qauser',
-                                       password='qauser')
-        mycursor = conn.cursor()
         try:
+            conn = mysql.connector.connect(host='35.154.36.218',
+                                           database='appserver_core',
+                                           user='qauser',
+                                           password='qauser')
+            mycursor = conn.cursor()
+
             mycursor.execute(
                 'delete from test_results where testuser_id in (select id from test_users where test_id = 6036 and login_time is not null);')
             conn.commit()

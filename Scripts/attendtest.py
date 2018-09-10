@@ -31,6 +31,7 @@ class Normaltest(TestPreview):
             print str(e)
         driver.switch_to_active_element()
         driver.find_element_by_xpath('/html/body/div[8]/div/div/div[3]/button[1]').click()
+        print 'Submitted successfully'
 
 
 Normaltest_Obj = Normaltest()

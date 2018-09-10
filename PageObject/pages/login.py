@@ -1,6 +1,6 @@
+import sys
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
-
 from Onlineassessment.PageObject.Locators import locator
 from selenium.webdriver.common.by import By
 
@@ -36,6 +36,8 @@ class Login(object):
             self.invalid_credentials = self.driver.find_element(By.CSS_SELECTOR, locator.invalidlogin)
             if hasattr(self, 'invalid_credentials'):
                 print self.invalid_credentials.text
+                sys.exit()
+
         except (NoSuchElementException) as e:
             print 'Login successfully'
 

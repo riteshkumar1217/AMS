@@ -34,11 +34,11 @@ class TestPreview(envSetup):
         login_obj.clickLogin()
         print 'login button clicked successfully'
         login_obj.getInvalidsLogin()
-        time.sleep(3)
+        time.sleep(1)
         starttestobj = startTestPage(driver)
-        time.sleep(3)
+        time.sleep(1)
         starttestobj.checked_Tc()
-        time.sleep(3)
+        time.sleep(1)
         starttestobj.startTest()
         print 'Test started'
 
