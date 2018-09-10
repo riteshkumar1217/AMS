@@ -1,4 +1,6 @@
 import sys
+import time
+
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
 from Onlineassessment.PageObject.Locators import locator
@@ -17,10 +19,14 @@ class Login(object):
             print e
 
     def setusername(self, loginname):
+        self.login.send_keys(Keys.CONTROL + "a");
+        self.login.send_keys(Keys.DELETE);
         self.login.send_keys(loginname)
         print 'login name entered'
 
     def setPasword(self, password):
+        self.password.send_keys(Keys.CONTROL + "a");
+        self.password.send_keys(Keys.DELETE);
         self.password.send_keys(password)
         print 'password entered'
 
@@ -36,6 +42,7 @@ class Login(object):
             self.invalid_credentials = self.driver.find_element(By.CSS_SELECTOR, locator.invalidlogin)
             if hasattr(self, 'invalid_credentials'):
                 print self.invalid_credentials.text
+                time.sleep(5)
                 sys.exit()
 
         except (NoSuchElementException) as e:
